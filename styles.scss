@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+
+$purple: hsl(259, 100%, 65%);
+$lightRed: hsl(0, 100%, 67%);
+$white: hsl(0, 0%, 100%);
+$offWhite: hsl(0, 0%, 94%);
+$lightGrey: hsl(0, 0%, 86%);
+$smokeyGrey: hsl(0, 1%, 44%);
+$offBlack: hsl(0, 0%, 8%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  background-color: $lightGrey;
+  font-family: "Poppins", sans-serif;
+}
+main {
+  width: 100%;
+}
+.container {
+  background-color: $white;
+  width: 90%;
+  margin: 5rem auto 0;
+  padding: 3rem 1.5rem;
+  border-radius: 1rem;
+  border-bottom-right-radius: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  .date {
+    display: flex;
+    gap: 1rem;
+    .group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      label {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: $smokeyGrey;
+      }
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        outline: none;
+        border: 1px solid $lightGrey;
+        font-weight: 800;
+        font-size: 1.05rem;
+      }
+    }
+    .group.error {
+      label {
+        color: $lightRed;
+      }
+      input {
+        border-color: $lightRed;
+      }
+      .error-message {
+        color: $lightRed;
+        font-weight: 500;
+        font-style: italic;
+        font-size: 0.7rem;
+      }
+    }
+  }
+  .line {
+    background-color: $lightGrey;
+    height: 1px;
+    width: 100%;
+    position: relative;
+    button {
+      background-color: $purple;
+      background-image: url(images/icon-arrow.svg);
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 60px;
+      width: 60px;
+      border: none;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .result {
+    p {
+      font-size: 3rem;
+      font-weight: 800;
+      font-style: italic;
+      line-height: 1;
+      span {
+        color: $purple;
+        margin-right: 0.75rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 376px) {
+  .container {
+    width: 700px;
+    padding: 3rem;
+    gap: 3rem;
+    border-bottom-right-radius: 10rem;
+    .date {
+      gap: 2rem;
+      .group {
+        width: 22%;
+        label {
+          font-size: 0.85rem;
+        }
+        input {
+          font-size: 1.35rem;
+          padding: 1rem;
+          transition: border-color 0.5s ease;
+        }
+        input:hover {
+          cursor: pointer;
+          border-color: $purple;
+        }
+      }
+    }
+    .line {
+      button {
+        left: unset;
+        right: 0;
+        transform: translate(0, -50%);
+        width: 80px;
+        height: 80px;
+        transition: background-color 0.5s ease;
+      }
+      button:hover {
+        background-color: $offBlack;
+        cursor: pointer;
+      }
+    }
+    .result {
+      p {
+        font-size: 5rem;
+      }
+    }
+  }
+}
